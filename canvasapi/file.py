@@ -2,6 +2,8 @@ from __future__ import absolute_import, division, print_function, unicode_litera
 
 from six import python_2_unicode_compatible
 
+import threading
+
 from canvasapi.canvas_object import CanvasObject
 
 
@@ -30,10 +32,9 @@ class File(CanvasObject):
         :type location: str
         """
         response = self._requester.request("GET", _url=self.url)
-
-        with open(location, "wb") as file_out:
-            file_out.write(response.content)
-
+        return response
+            
+            
     def get_contents(self):
         """
         Download the contents of this file.

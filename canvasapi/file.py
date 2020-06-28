@@ -24,7 +24,7 @@ class File(CanvasObject):
         response = self._requester.request("DELETE", "files/{}".format(self.id))
         return File(self._requester, response.json())
 
-    def download(self, location):
+    def download(self):
         """
         Download the file to specified location.
 

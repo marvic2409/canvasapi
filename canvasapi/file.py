@@ -31,8 +31,8 @@ class File(CanvasObject):
         :param location: The path to download to.
         :type location: str
         """
-        response = self._requester.request("GET", _url=self.url)
-        return response
+        url = self.url
+        return url
             
             
     def get_contents(self):
